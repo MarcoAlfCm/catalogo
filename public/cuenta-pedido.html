@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle de pedido · Caja de Creaciones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Nunito+Sans:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="/css/catalogo.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand-mini" href="/catalogo">
+        <div class="brand-mark"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <div>
+          <strong>Caja de Creaciones</strong>
+          <span>Detalle de pedido</span>
+        </div>
+      </a>
+      <nav class="nav-pills" aria-label="Navegación principal">
+        <a class="nav-pill" href="/catalogo"><i class="fa-solid fa-store"></i> Catálogo</a>
+        <a class="nav-pill active" href="/cuenta"><i class="fa-regular fa-user"></i> Mi cuenta</a>
+        <a class="nav-pill" href="/pedido"><i class="fa-regular fa-clipboard"></i> Pedido</a>
+      </nav>
+      <div class="customer-menu" id="customerMenu"></div>
+    </header>
+
+    <section class="panel-card customer-order-detail-shell" id="customerOrderDetailPanel">
+      <div class="empty-state"><i class="fa-solid fa-spinner fa-spin"></i> Cargando detalle del pedido...</div>
+    </section>
+  </main>
+
+  <script src="/js/catalogo-data.js"></script>
+  <script src="/js/cuenta-pedido.js"></script>
+</body>
+</html>

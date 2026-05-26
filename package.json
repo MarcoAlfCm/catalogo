@@ -1,0 +1,19 @@
+{
+  "name": "catalogo",
+  "version": "1.2.0",
+  "description": "Catalogo de manualidades - backend base con Express, MySQL y uploads",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "NODE_ENV=development node app.js",
+    "create-admin": "node scripts/create-admin.js"
+  },
+  "dependencies": {
+    "compression": "latest",
+    "dotenv": "latest",
+    "express": "latest",
+    "helmet": "latest",
+    "multer": "latest",
+    "mysql2": "latest"
+  }
+}

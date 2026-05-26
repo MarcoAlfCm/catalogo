@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login · Caja de Creaciones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Nunito+Sans:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="/css/catalogo.css">
+</head>
+<body>
+  <main class="login-shell">
+    <header class="topbar">
+      <a class="brand-mini" href="/catalogo">
+        <div class="brand-mark"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <div>
+          <strong>Caja de Creaciones</strong>
+          <span>Acceso administrativo</span>
+        </div>
+      </a>
+      <nav class="nav-pills">
+        <a class="nav-pill" href="/catalogo"><i class="fa-solid fa-store"></i> Catálogo</a>
+        <a class="nav-pill active" href="/admin/login"><i class="fa-solid fa-lock"></i> Admin</a>
+      </nav>
+    </header>
+
+    <section class="login-grid">
+      <aside class="login-hero">
+        <h1>El taller queda cerrado para curiosos.</h1>
+        <p>El catálogo sigue público; el panel de productos, pedidos y categorías queda reservado para administradores.</p>
+      </aside>
+
+      <article class="login-card">
+        <header class="panel-header" style="padding:0 0 1rem; margin-bottom:1rem;">
+          <div>
+            <h2><i class="fa-solid fa-user-shield"></i> Entrar al panel</h2>
+            <p class="panel-subtitle">Usa el usuario administrador creado en el servidor.</p>
+          </div>
+        </header>
+
+        <form class="form-grid" id="adminLoginForm">
+          <div class="form-field">
+            <label for="adminEmailInput">Correo admin</label>
+            <input class="input" id="adminEmailInput" type="email" autocomplete="username" placeholder="admin@dominio.com" required>
+          </div>
+          <div class="form-field">
+            <label for="adminPasswordInput">Contraseña</label>
+            <input class="input" id="adminPasswordInput" type="password" autocomplete="current-password" placeholder="Contraseña administrativa" required>
+          </div>
+          <button class="btn-primary" type="submit" id="adminLoginBtn"><i class="fa-solid fa-arrow-right-to-bracket"></i> Entrar al admin</button>
+        </form>
+
+        <div class="notice-box" id="adminLoginMessage" style="margin-top:1rem; display:none;"></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="/js/admin-login.js"></script>
+</body>
+</html>

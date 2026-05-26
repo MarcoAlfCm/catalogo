@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin · Caja de Creaciones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Nunito+Sans:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="/css/catalogo.css">
+</head>
+<body class="admin-page">
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand-mini" href="/catalogo">
+        <div class="brand-mark"><i class="fa-solid fa-umbrella-beach"></i></div>
+        <div>
+          <strong>Panel admin</strong>
+          <span>Catálogo de artesanías</span>
+        </div>
+      </a>
+
+      <nav class="nav-pills" aria-label="Navegación principal">
+        <a class="nav-pill" href="/catalogo"><i class="fa-solid fa-store"></i> Catálogo</a>
+        <a class="nav-pill active" href="/admin"><i class="fa-solid fa-sliders"></i> Admin</a>
+        <button class="nav-pill nav-button" type="button" id="adminLogoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Salir</button>
+      </nav>
+    </header>
+
+    <section class="admin-layout">
+      <aside class="panel-card">
+        <header class="panel-header">
+          <div>
+            <h1>Control del catálogo</h1>
+            <p class="panel-subtitle">Gestiona tus productos artesanales</p>
+          </div>
+        </header>
+        <nav class="admin-nav" aria-label="Secciones admin">
+          <button class="active" type="button" data-target="productos"><i class="fa-solid fa-box"></i> Productos</button>
+          <button type="button" data-target="pedidos"><i class="fa-regular fa-clipboard"></i> Pedidos</button>
+          <button type="button" data-target="categorias"><i class="fa-solid fa-tags"></i> Categorías</button>
+        </nav>
+        <div class="notice-box">
+          <i class="fa-solid fa-lock"></i>
+          <span><strong>¡Modo demo!</strong><br>Datos locales, estilo estable y control visual del catálogo.</span>
+        </div>
+      </aside>
+
+      <div class="admin-grid">
+        <section class="admin-section active" data-section="productos">
+          <article class="panel-card">
+            <header class="panel-header">
+              <div>
+                <h2><span class="title-plus">+</span> Nuevo producto</h2>
+                <p class="panel-subtitle">Agrega un nuevo producto artesanal al catálogo</p>
+              </div>
+              <button class="btn-soft" type="button" id="resetCatalogBtn"><i class="fa-solid fa-rotate-left"></i> Restaurar demo</button>
+            </header>
+
+            <div class="form-body admin-product-form">
+              <label class="upload-zone" id="uploadZone" for="imageInput">
+                <input type="file" id="imageInput" accept="image/*">
+                <img id="imagePreview" alt="Vista previa del producto">
+                <span class="upload-copy">
+                  <i class="fa-solid fa-cloud-arrow-up"></i>
+                  <strong>Arrastra y suelta una imagen</strong>
+                  <small>o haz clic para seleccionar</small>
+                  <em>JPG, PNG · Máx. 5MB</em>
+                </span>
+              </label>
+
+              <div class="form-grid admin-fields">
+                <div class="form-field">
+                  <label for="nameInput">Nombre del producto</label>
+                  <input class="input" id="nameInput" type="text" placeholder="ej. Llavero Neon">
+                </div>
+
+                <div class="form-field">
+                  <label for="categoryInput">Categoría</label>
+                  <select class="select" id="categoryInput">
+                    <option>Resina</option>
+                    <option>Impresión 3D</option>
+                    <option>Decoración</option>
+                    <option>Personalizados</option>
+                    <option>Eventos</option>
+                    <option>Manualidades</option>
+                  </select>
+                </div>
+
+                <div class="form-field price-field">
+                  <label for="priceInput">Precio</label>
+                  <div class="price-control">
+                    <span>$</span>
+                    <input class="input" id="priceInput" type="number" min="0" placeholder="120.00">
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="measureInput">Medidas</label>
+                  <input class="input" id="measureInput" type="text" placeholder="ej. 6x4 cm">
+                </div>
+
+                <div class="form-field">
+                  <label for="materialInput">Material</label>
+                  <input class="input" id="materialInput" type="text" placeholder="ej. Resina">
+                </div>
+
+                <div class="form-field">
+                  <label for="timeInput">Tiempo de elaboración</label>
+                  <input class="input" id="timeInput" type="text" placeholder="ej. 2 días">
+                </div>
+
+                <div class="form-field">
+                  <label for="stockInput">Disponibilidad</label>
+                  <select class="select" id="stockInput">
+                    <option>Bajo pedido</option>
+                    <option>Disponible</option>
+                    <option>Personalizado</option>
+                    <option>Por lote</option>
+                    <option>Agotado</option>
+                  </select>
+                </div>
+
+                <div class="form-field">
+                  <label for="statusInput">Estado</label>
+                  <select class="select" id="statusInput">
+                    <option>Publicado</option>
+                    <option>Oculto</option>
+                  </select>
+                </div>
+
+                <div class="form-field">
+                  <label for="customInput">Personalizable</label>
+                  <select class="select" id="customInput">
+                    <option>Sí</option>
+                    <option>No</option>
+                    <option>Consultar</option>
+                  </select>
+                </div>
+
+                <div class="form-field">
+                  <label for="specsInput">Especificaciones (separar con ;)</label>
+                  <input class="input" id="specsInput" type="text" placeholder="Brillo; Nombre; Color">
+                </div>
+              </div>
+
+              <div class="form-field form-detail">
+                <label for="detailInput">Descripción</label>
+                <textarea class="textarea" id="detailInput" placeholder="Describe tu producto, materiales, cuidados, detalles especiales..."></textarea>
+              </div>
+
+              <div class="form-actions">
+                <button class="btn-primary" type="button" id="addProductBtn"><i class="fa-regular fa-floppy-disk"></i> Guardar producto</button>
+                <button class="btn-ghost" type="button" id="resetFormBtn"><i class="fa-solid fa-pen"></i> Limpiar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel-card" style="margin-top:1rem;">
+            <header class="panel-header">
+              <div>
+                <h2><i class="fa-regular fa-folder-open"></i> Inventario de productos</h2>
+                <p class="panel-subtitle">Publicados aparecen en el catálogo; ocultos no se muestran al público.</p>
+              </div>
+              <span class="mini-badge" id="adminCounter">0 publicados</span>
+            </header>
+            <div class="admin-list" id="adminList"></div>
+          </article>
+        </section>
+
+        <section class="admin-section" data-section="pedidos">
+          <article class="panel-card">
+            <header class="panel-header">
+              <div>
+                <h2><i class="fa-regular fa-clipboard"></i> Pedidos</h2>
+                <p class="panel-subtitle">Vista operativa para revisar cliente, piezas, notas y avanzar el estado del pedido.</p>
+              </div>
+              <div class="header-actions">
+                <span class="mini-badge" id="ordersCounter">0 pedidos</span>
+                <button class="btn-soft" type="button" id="refreshOrdersBtn"><i class="fa-solid fa-rotate"></i> Actualizar</button>
+              </div>
+            </header>
+
+            <div class="orders-admin-layout">
+              <div class="orders-admin-main">
+                <div class="orders-status-summary" id="ordersStatusSummary"></div>
+
+                <div class="orders-toolbar">
+                  <div class="form-field">
+                    <label for="orderSearchInput">Buscar pedido</label>
+                    <input class="input" id="orderSearchInput" type="search" placeholder="Pedido, cliente, correo o teléfono">
+                  </div>
+                  <div class="form-field">
+                    <label for="orderStatusFilter">Filtrar estado</label>
+                    <select class="select" id="orderStatusFilter">
+                      <option value="Todo">Todos</option>
+                      <option value="Pendiente de revisión">Pendiente de revisión</option>
+                      <option value="Confirmado">Confirmado</option>
+                      <option value="En elaboración">En elaboración</option>
+                      <option value="Listo para entrega">Listo para entrega</option>
+                      <option value="Entregado">Entregado</option>
+                      <option value="Cancelado">Cancelado</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="orders-admin-list" id="ordersPreview"></div>
+              </div>
+
+              <aside class="order-detail-panel" id="orderDetailPanel">
+                <div class="empty-state">
+                  <i class="fa-regular fa-hand-pointer"></i>
+                  Selecciona un pedido para ver productos, cliente y control de estado.
+                </div>
+              </aside>
+            </div>
+          </article>
+        </section>
+
+        <section class="admin-section" data-section="categorias">
+          <article class="panel-card">
+            <header class="panel-header">
+              <div>
+                <h2><i class="fa-solid fa-tags"></i> Categorías preview</h2>
+                <p class="panel-subtitle">La categoría debe ordenar el catálogo, no complicar el alta de productos.</p>
+              </div>
+            </header>
+            <div class="preview-table" id="categoriesPreview"></div>
+          </article>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/catalogo-data.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

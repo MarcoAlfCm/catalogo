@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ingresar · Caja de Creaciones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Nunito+Sans:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="/css/catalogo.css">
+</head>
+<body>
+  <main class="login-shell">
+    <header class="topbar">
+      <a class="brand-mini" href="/catalogo">
+        <div class="brand-mark"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <div>
+          <strong>Caja de Creaciones</strong>
+          <span>Ingreso de comprador</span>
+        </div>
+      </a>
+      <nav class="nav-pills">
+        <a class="nav-pill" href="/catalogo"><i class="fa-solid fa-store"></i> Catálogo</a>
+        <a class="nav-pill active" href="/login"><i class="fa-regular fa-user"></i> Ingresar</a>
+      </nav>
+    </header>
+
+    <section class="login-grid">
+      <aside class="login-hero">
+        <h1 id="loginHeroTitle">Tu cuenta guarda pedidos, historial y futuras personalizaciones.</h1>
+        <p id="loginHeroCopy">El catálogo sigue abierto sin login. Esta entrada normal lleva a tu panel de comprador, no manda ningún carrito automáticamente.</p>
+        <div class="notice-box" style="margin-top:1rem;">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span>Tu carrito permanece guardado en este navegador mientras inicias sesión o creas tu cuenta.</span>
+        </div>
+      </aside>
+
+      <article class="login-card">
+        <header class="panel-header" style="padding:0 0 1rem; margin-bottom:1rem;">
+          <div>
+            <h2 id="loginPanelTitle"><i class="fa-solid fa-arrow-right-to-bracket"></i> Ingresar a mi cuenta</h2>
+            <p class="panel-subtitle" id="loginPanelSubtitle">Entra para ver tu dashboard de comprador, revisar pedidos y preparar futuras personalizaciones.</p>
+          </div>
+        </header>
+
+        <div class="notice-box" id="loginNotice" style="display:none; margin-bottom:1rem;">
+          <i class="fa-solid fa-circle-info"></i>
+          <span id="loginNoticeText"></span>
+        </div>
+
+        <form class="form-grid" id="loginForm">
+          <div class="form-field">
+            <label for="emailInput">Correo</label>
+            <input class="input" id="emailInput" name="email" type="email" placeholder="cliente@correo.com" autocomplete="email" required>
+          </div>
+          <div class="form-field">
+            <label for="passwordInput">Contraseña</label>
+            <input class="input" id="passwordInput" name="password" type="password" placeholder="Tu contraseña" autocomplete="current-password" required>
+          </div>
+          <button class="btn-primary" type="submit"><i class="fa-solid fa-arrow-right"></i> <span id="loginButtonText">Entrar a mi cuenta</span></button>
+        </form>
+
+        <hr class="divider-light" style="margin:1.4rem 0;">
+
+        <form class="form-grid" id="registerForm">
+          <div class="form-grid two">
+            <div class="form-field">
+              <label for="nameInput">Nombre</label>
+              <input class="input" id="nameInput" name="name" type="text" placeholder="Nombre del cliente" autocomplete="name" required>
+            </div>
+            <div class="form-field">
+              <label for="phoneInput">WhatsApp</label>
+              <input class="input" id="phoneInput" name="phone" type="text" placeholder="Número de contacto" autocomplete="tel">
+            </div>
+          </div>
+          <div class="form-grid two">
+            <div class="form-field">
+              <label for="registerEmailInput">Correo</label>
+              <input class="input" id="registerEmailInput" name="email" type="email" placeholder="cliente@correo.com" autocomplete="email" required>
+            </div>
+            <div class="form-field">
+              <label for="registerPasswordInput">Contraseña</label>
+              <input class="input" id="registerPasswordInput" name="password" type="password" placeholder="Mínimo 8 caracteres" autocomplete="new-password" minlength="8" required>
+            </div>
+          </div>
+          <button class="btn-soft" type="submit"><i class="fa-regular fa-user"></i> <span id="registerButtonText">Crear cuenta de comprador</span></button>
+        </form>
+      </article>
+    </section>
+  </main>
+
+  <script src="/js/login.js"></script>
+</body>
+</html>

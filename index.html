@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo · Caja de Creaciones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Nunito+Sans:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="/css/catalogo.css">
+</head>
+<body>
+  <main class="app-shell catalog-wide-shell">
+    <header class="topbar">
+      <a class="brand-mini" href="/catalogo" aria-label="Ir al catálogo">
+        <div class="brand-mark"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <div>
+          <strong>Caja de Creaciones</strong>
+          <span>Catálogo artesanal · pedidos personalizados</span>
+        </div>
+      </a>
+
+      <nav class="nav-pills" aria-label="Navegación principal">
+        <a class="nav-pill active" href="/catalogo"><i class="fa-solid fa-store"></i> Catálogo</a>
+        <a class="nav-pill" href="/admin"><i class="fa-solid fa-sliders"></i> Admin</a>
+      </nav>
+
+      <div class="customer-menu" id="customerMenu"></div>
+
+      <div class="cart-wrap">
+        <button class="cart-toggle" type="button" id="cartToggle" aria-expanded="false" aria-controls="cartPopover">
+          <i class="fa-solid fa-bag-shopping"></i>
+          Pedido
+          <span class="cart-pill" id="cartButtonCount">0</span>
+        </button>
+
+        <aside class="cart-popover" id="cartPopover" aria-label="Pedido desplegable">
+          <header class="cart-head">
+            <h2><i class="fa-solid fa-file-invoice-dollar"></i> Tu pedido</h2>
+            <span class="mini-badge" id="quoteCount">0 items</span>
+          </header>
+          <div class="quote-list" id="quoteList"></div>
+          <div class="quote-summary">
+            <div class="totals-row">
+              <span class="totals-label"><i class="fa-solid fa-receipt"></i> Subtotal estimado</span>
+              <span class="totals-amount" id="subtotalText">$0.00</span>
+            </div>
+            <div class="totals-row">
+              <span class="totals-label"><i class="fa-solid fa-truck"></i> Entrega</span>
+              <span class="totals-amount" style="color: var(--success);">Por confirmar</span>
+            </div>
+            <div class="total-final">
+              <span class="label">Total aproximado</span>
+              <span class="amount"><small>MXN</small> <span id="totalText">$0</span></span>
+            </div>
+            <button class="btn-primary" type="button" style="width:100%; margin-top:1rem;" id="quoteBtn">
+              <i class="fa-solid fa-arrow-right-to-bracket"></i> Solicitar pedido
+            </button>
+            <div class="secure-note">
+              <span><i class="fa-solid fa-circle-info"></i> Login solo al finalizar</span>
+              <span><i class="fa-solid fa-ruler-combined"></i> Personalización por confirmar</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section class="catalog-layout catalog-layout-single">
+      <section class="catalog-content panel-card catalog-content-wide">
+        <section class="catalog-discovery-card" aria-label="Explorar catálogo">
+          <div class="catalog-discovery-copy">
+            <div class="catalog-eyebrow-row">
+              <span class="mini-badge"><i class="fa-solid fa-store"></i> Catálogo de artesanías</span>
+              <span class="mini-badge" id="catalogCounter">0 piezas</span>
+            </div>
+
+            <span class="script-kicker">Hecho a mano, hecho con amor</span>
+            <h1>Descubre piezas únicas, hechas especialmente para ti.</h1>
+            <p>Explora productos, filtra por categoría y agrega al pedido sin iniciar sesión. El login aparece solo cuando quieras confirmar tu solicitud.</p>
+          </div>
+
+          <div class="catalog-discovery-tools">
+            <h2 class="filter-title"><i class="fa-solid fa-filter"></i> Explorar catálogo</h2>
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input class="input" type="search" id="searchInput" placeholder="Buscar pieza, material o detalle">
+            </div>
+            <div class="category-list category-list-inline" id="categoryList"></div>
+            <div class="filter-note catalog-note-inline">
+              <strong>Pedido claro:</strong> catálogo público, carrito libre y confirmación con login solo al final.
+            </div>
+          </div>
+
+          <div class="retro-orb catalog-orb" aria-hidden="true"><i class="fa-regular fa-heart"></i></div>
+        </section>
+
+        <div class="catalog-toolbar catalog-toolbar-wide">
+          <div>
+            <strong>Piezas disponibles</strong><br>
+            <span id="resultHint">0 resultados visibles</span>
+          </div>
+          <a class="btn-soft" href="/pedido"><i class="fa-regular fa-clipboard"></i> Ver pedido</a>
+        </div>
+        <div class="catalog-grid catalog-grid-wide" id="catalogGrid"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="/js/catalogo-data.js"></script>
+  <script src="/js/catalogo.js"></script>
+</body>
+</html>

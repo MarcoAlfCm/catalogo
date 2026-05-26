@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi cuenta · Caja de Creaciones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Nunito+Sans:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="/css/catalogo.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand-mini" href="/catalogo">
+        <div class="brand-mark"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <div>
+          <strong>Caja de Creaciones</strong>
+          <span>Panel de comprador</span>
+        </div>
+      </a>
+      <nav class="nav-pills" aria-label="Navegación principal">
+        <a class="nav-pill" href="/catalogo"><i class="fa-solid fa-store"></i> Catálogo</a>
+        <a class="nav-pill active" href="/cuenta"><i class="fa-regular fa-user"></i> Mi cuenta</a>
+        <a class="nav-pill" href="/pedido"><i class="fa-regular fa-clipboard"></i> Pedido</a>
+      </nav>
+      <div class="customer-menu" id="customerMenu"></div>
+    </header>
+
+    <section class="dashboard-hero panel-card">
+      <div>
+        <span class="mini-badge"><i class="fa-regular fa-user"></i> Comprador</span>
+        <h1 id="accountTitle">Mi cuenta</h1>
+        <p class="panel-subtitle" id="accountSubtitle">Desde aquí se revisan pedidos, carrito activo y futuras personalizaciones.</p>
+      </div>
+      <div class="dashboard-actions">
+        <a class="btn-primary" href="/catalogo"><i class="fa-solid fa-store"></i> Ver catálogo</a>
+        <a class="btn-soft" href="/personalizado"><i class="fa-solid fa-wand-magic-sparkles"></i> Pedido personalizado</a>
+      </div>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="metric-card">
+        <span>Carrito actual</span>
+        <strong id="cartMetric">0 productos</strong>
+        <a href="/pedido">Revisar pedido</a>
+      </article>
+      <article class="metric-card">
+        <span>Pedidos creados</span>
+        <strong id="ordersMetric">0</strong>
+        <a href="#ordersPanel">Ver historial</a>
+      </article>
+      <article class="metric-card">
+        <span>Personalizaciones</span>
+        <strong>Próxima fase</strong>
+        <a href="/personalizado">Preparar solicitud</a>
+      </article>
+    </section>
+
+    <section class="panel-card" id="ordersPanel" style="margin-top:1rem;">
+      <header class="panel-header">
+        <div>
+          <h2><i class="fa-regular fa-clipboard"></i> Mis pedidos</h2>
+          <p class="panel-subtitle">Historial ligado a tu cuenta. El admin confirma precio, tiempos y entrega.</p>
+        </div>
+      </header>
+      <div class="customer-orders" id="customerOrdersList">
+        <div class="empty-state"><i class="fa-solid fa-spinner fa-spin"></i> Cargando pedidos...</div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/catalogo-data.js"></script>
+  <script src="/js/cuenta.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedido personalizado · Caja de Creaciones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Nunito+Sans:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="/css/catalogo.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand-mini" href="/catalogo">
+        <div class="brand-mark"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <div>
+          <strong>Caja de Creaciones</strong>
+          <span>Solicitud personalizada</span>
+        </div>
+      </a>
+      <nav class="nav-pills" aria-label="Navegación principal">
+        <a class="nav-pill" href="/catalogo"><i class="fa-solid fa-store"></i> Catálogo</a>
+        <a class="nav-pill" href="/cuenta"><i class="fa-regular fa-user"></i> Mi cuenta</a>
+        <a class="nav-pill active" href="/personalizado"><i class="fa-solid fa-wand-magic-sparkles"></i> Personalizado</a>
+      </nav>
+      <div class="customer-menu" id="customerMenu"></div>
+    </header>
+
+    <section class="custom-order-layout custom-order-live-layout custom-order-chat-left-layout">
+      <aside class="order-note-panel custom-order-guide custom-order-chat-panel">
+        <h1>Pedido personalizado.</h1>
+        <p>Escribe tu idea como la dirías por mensaje. La IA la acomoda, detecta huecos y deja lista una solicitud clara para que el admin revise precio, entrega y viabilidad.</p>
+
+        <div class="custom-preview-steps custom-preview-steps-compact">
+          <div><strong>1</strong><span>Cuenta la pieza, cantidad o medida que ya tienes en mente.</span></div>
+          <div><strong>2</strong><span>La IA te preguntará solo lo que falte, sin hacerte llenar campos a ciegas.</span></div>
+          <div><strong>3</strong><span>Cuando el resumen esté completo, crea la solicitud para revisión.</span></div>
+        </div>
+
+        <section class="custom-mini-chat-card" aria-label="Solicitud guiada de pedido personalizado">
+          <h3><i class="fa-solid fa-comments"></i> Solicitud guiada</h3>
+          <div class="custom-chat" id="customChat" aria-live="polite"></div>
+
+          <form class="custom-chat-form" id="customChatForm">
+            <textarea class="textarea" id="customMessage" rows="3" placeholder="Ejemplo: Quiero una figura de Yousepe de 15 cm, en tonos azul y blanco, para el 15 de junio."></textarea>
+            <div class="form-actions custom-chat-actions">
+              <button class="btn-primary" type="submit" id="sendCustomMessageBtn"><i class="fa-solid fa-paper-plane"></i> Enviar a IA</button>
+            </div>
+          </form>
+        </section>
+      </aside>
+
+      <article class="order-card custom-order-workbench custom-order-builder-panel">
+        <header class="panel-header custom-order-head">
+          <div>
+            <h2><i class="fa-solid fa-clipboard-list"></i> Constructor de solicitud</h2>
+            <p class="panel-subtitle">La IA ordena el texto del chat. Las fotos quedan como referencia para el admin; si subes imagen, describe qué parte debe tomarse de ella.</p>
+          </div>
+          <span class="mini-badge" id="customSessionText">Validando cuenta...</span>
+        </header>
+
+        <div class="custom-builder-stack">
+          <section class="custom-builder-section custom-model-section">
+            <div class="form-field">
+              <label for="baseProductSelect">Modelo base opcional</label>
+              <select class="select" id="baseProductSelect">
+                <option value="">Sin modelo base, quiero una pieza nueva</option>
+              </select>
+            </div>
+          </section>
+
+          <section class="custom-summary-card custom-builder-summary" id="customSummaryCard">
+            <h3><i class="fa-regular fa-clipboard"></i> Resumen de solicitud</h3>
+            <div id="customSummaryContent"></div>
+          </section>
+
+          <section class="custom-builder-section custom-reference-section">
+            <form class="reference-upload reference-upload-card" id="referenceForm">
+              <span class="reference-upload-title"><i class="fa-regular fa-image"></i> Foto de referencia</span>
+              <label class="upload-zone custom-reference-dropzone" id="referenceDropZone" for="referenceImage">
+                <input id="referenceImage" name="referenceImage" type="file" accept="image/jpeg,image/png,image/webp,image/gif,image/avif">
+                <img id="referencePreview" alt="Vista previa de referencia">
+                <span class="upload-copy">
+                  <i class="fa-solid fa-cloud-arrow-up"></i>
+                  <strong>Arrastra y suelta una imagen</strong>
+                  <small>o haz clic para seleccionar</small>
+                  <em>JPG, PNG, WEBP · Máx. 5MB</em>
+                </span>
+              </label>
+            </form>
+
+            <div class="reference-strip" id="referenceStrip"></div>
+          </section>
+
+          <div class="form-actions custom-create-actions">
+            <button class="btn-soft" type="button" id="finishCustomOrderBtn" disabled><i class="fa-solid fa-check"></i> Crear solicitud</button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <script src="/js/catalogo-data.js"></script>
+  <script src="/js/personalizado.js"></script>
+</body>
+</html>

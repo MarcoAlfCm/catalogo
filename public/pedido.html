@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedido · Caja de Creaciones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Nunito+Sans:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="/css/catalogo.css">
+</head>
+<body>
+  <main class="order-shell">
+    <header class="topbar">
+      <a class="brand-mini" href="/catalogo">
+        <div class="brand-mark"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <div>
+          <strong>Caja de Creaciones</strong>
+          <span>Confirmación de pedido</span>
+        </div>
+      </a>
+      <nav class="nav-pills">
+        <a class="nav-pill" href="/catalogo"><i class="fa-solid fa-store"></i> Catálogo</a>
+        <a class="nav-pill active" href="/pedido"><i class="fa-regular fa-clipboard"></i> Pedido</a>
+      </nav>
+      <div class="customer-menu" id="customerMenu"></div>
+    </header>
+
+    <section class="order-grid">
+      <aside class="order-note-panel">
+        <h1>Pedido pendiente de revisión.</h1>
+        <p>Esta vista no cobra ni promete disponibilidad final. Sirve para confirmar piezas, cantidades, datos de contacto y notas; después el admin revisa y confirma precio, entrega y tiempos.</p>
+      </aside>
+
+      <article class="order-card">
+        <header class="panel-header" style="padding:0 0 1rem; margin-bottom:1rem;">
+          <div>
+            <h2><i class="fa-solid fa-bag-shopping"></i> Resumen del pedido</h2>
+            <p class="panel-subtitle">El carrito del catálogo llega hasta esta pantalla después de identificar al cliente. Nada se envía hasta presionar Crear pedido.</p>
+          </div>
+          <span class="mini-badge" id="orderCount">0 productos</span>
+        </header>
+
+        <div class="order-list" id="orderList"></div>
+
+        <div class="quote-summary" style="margin:1rem -1.25rem -1.25rem;">
+          <div class="total-final" style="border-top:0; padding-top:0;">
+            <span class="label">Total estimado</span>
+            <span class="amount"><small>MXN</small> <span id="orderTotal">$0.00</span></span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <article class="order-card" style="margin-top:1rem;">
+      <header class="panel-header" style="padding:0 0 1rem; margin-bottom:1rem;">
+        <div>
+          <h2><i class="fa-regular fa-address-card"></i> Datos para confirmar</h2>
+          <p class="panel-subtitle">Campos mínimos. La cuenta queda ligada al pedido y el admin podrá revisar el historial después.</p>
+        </div>
+      </header>
+
+      <div class="notice-box" id="customerSessionBox" style="margin-bottom:1rem;">
+        <i class="fa-regular fa-user"></i>
+        <span id="customerSessionText">Validando sesión del cliente...</span>
+      </div>
+
+      <form class="form-grid" id="orderForm">
+        <div class="form-grid two">
+          <div class="form-field">
+            <label for="clientName">Nombre</label>
+            <input class="input" id="clientName" type="text" placeholder="Nombre del cliente">
+          </div>
+          <div class="form-field">
+            <label for="clientPhone">WhatsApp</label>
+            <input class="input" id="clientPhone" type="text" placeholder="Número de contacto">
+          </div>
+        </div>
+        <div class="form-grid two">
+          <div class="form-field">
+            <label for="deliveryType">Entrega</label>
+            <select class="select" id="deliveryType">
+              <option>Por confirmar</option>
+              <option>Recoger en punto acordado</option>
+              <option>Envío local</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="dateNeeded">Fecha deseada</label>
+            <input class="input" id="dateNeeded" type="date">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="orderNotes">Notas de personalización</label>
+          <textarea class="textarea" id="orderNotes" placeholder="Nombres, colores, tema, medidas especiales o cualquier detalle importante."></textarea>
+        </div>
+        <div class="form-actions">
+          <button class="btn-primary" type="submit"><i class="fa-solid fa-check"></i> Crear pedido</button>
+          <a class="btn-soft" href="/catalogo"><i class="fa-solid fa-plus"></i> Agregar más productos</a>
+          <button class="btn-soft" id="customerLogoutBtn" type="button"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
+        </div>
+      </form>
+    </article>
+  </main>
+
+  <script src="/js/catalogo-data.js"></script>
+  <script src="/js/pedido.js"></script>
+</body>
+</html>
