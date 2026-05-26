@@ -5,27 +5,69 @@
 }
 
 :root {
-  --bg-a: #fbf9fd;
-  --bg-b: #f1edf7;
-  --card: #ffffff;
-  --card-soft: #f8f5fb;
-  --ink: #251f31;
-  --muted: #766a84;
-  --line: #e7dff0;
-  --line-strong: #d9cde8;
-  --accent: #6f5a92;
-  --accent-2: #8b75b2;
-  --accent-3: #4f3f69;
-  --accent-soft: #f3eef9;
-  --success: #527e62;
-  --danger: #a84a68;
-  --warning: #8a6b2d;
-  --warning-soft: #fff8ed;
-  --shadow: 0 22px 44px -26px rgba(47, 35, 66, 0.52);
-  --shadow-card: 0 18px 34px -26px rgba(47, 35, 66, 0.52);
-  --radius-xl: 30px;
-  --radius-lg: 24px;
-  --radius-md: 18px;
+  /* Paleta principal: creativa, artesanal y consistente en todas las vistas. */
+  --color-ink: #171447;
+  --color-ink-soft: #60577d;
+  --color-deep: #201457;
+  --color-purple: #5b2ebf;
+  --color-violet: #7b49d3;
+  --color-pink: #f0328f;
+  --color-coral: #ff8a71;
+  --color-teal: #00abc2;
+  --color-cyan: #34d4e7;
+  --color-cream: #fffaf0;
+  --color-paper: rgba(255, 252, 244, 0.94);
+  --color-lavender: #eee7ff;
+  --color-soft-pink: #fff0f7;
+  --color-grid: rgba(123, 73, 211, 0.14);
+  --color-line: #e5d8f0;
+  --color-line-strong: #c8b8e8;
+
+  --bg-a: #f3edff;
+  --bg-b: #fff4fa;
+  --card: var(--color-paper);
+  --card-soft: #fff7ed;
+  --ink: var(--color-ink);
+  --muted: var(--color-ink-soft);
+  --line: var(--color-line);
+  --line-strong: var(--color-line-strong);
+  --accent: var(--color-pink);
+  --accent-2: var(--color-teal);
+  --accent-3: var(--color-deep);
+  --accent-soft: #f5edff;
+  --success: #13866f;
+  --danger: #e83572;
+  --warning: #9a6b1e;
+  --warning-soft: #fff5db;
+  --shadow: 0 18px 0 -12px rgba(32, 20, 87, 0.18), 0 24px 58px -34px rgba(32, 20, 87, 0.55);
+  --shadow-card: 0 16px 32px -24px rgba(32, 20, 87, 0.55);
+  --shadow-soft: 0 16px 32px -24px rgba(32, 20, 87, 0.45);
+  --radius-xl: 24px;
+  --radius-lg: 20px;
+  --radius-md: 15px;
+  --font-body: 'Nunito Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Barlow Condensed', 'Nunito Sans', system-ui, sans-serif;
+  --font-script: 'Pacifico', cursive;
+
+  /* Alias heredados. Permiten limpiar por etapas sin romper estilos existentes. */
+  --retro-ink: var(--color-ink);
+  --retro-ink-soft: var(--color-ink-soft);
+  --retro-deep: var(--color-deep);
+  --retro-purple: var(--color-purple);
+  --retro-violet: var(--color-violet);
+  --retro-pink: var(--color-pink);
+  --retro-coral: var(--color-coral);
+  --retro-teal: var(--color-teal);
+  --retro-cyan: var(--color-cyan);
+  --retro-mint: #e7fbf7;
+  --retro-cream: var(--color-cream);
+  --retro-paper: var(--color-paper);
+  --retro-lavender: var(--color-lavender);
+  --retro-soft-pink: var(--color-soft-pink);
+  --retro-grid: var(--color-grid);
+  --purple: var(--color-purple);
+  --pink: var(--color-pink);
+  --teal: var(--color-teal);
 }
 
 html {
@@ -34,7 +76,7 @@ html {
 
 body {
   min-height: 100vh;
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-body);
   color: var(--ink);
   background:
     radial-gradient(circle at top left, rgba(139, 117, 178, 0.17), transparent 30rem),
@@ -2494,52 +2536,9 @@ img {
 }
 
 /* =========================================================
-   VISUAL V8 · Retro 80/90 suave sin pixelart
-   Base estable: catalogo-2026-05-25-06.zip
-   Objetivo: unificar catálogo público, cuenta, pedido y admin.
+   Tema compartido
+   Los alias retro se definen en :root para mantener compatibilidad.
    ========================================================= */
-:root {
-  --retro-ink: #171447;
-  --retro-deep: #201457;
-  --retro-purple: #5b2ebf;
-  --retro-violet: #7b49d3;
-  --retro-pink: #f0328f;
-  --retro-coral: #ff8a71;
-  --retro-teal: #00abc2;
-  --retro-cyan: #34d4e7;
-  --retro-mint: #e7fbf7;
-  --retro-cream: #fffaf0;
-  --retro-paper: rgba(255, 252, 244, 0.94);
-  --retro-lavender: #eee7ff;
-  --retro-soft-pink: #fff0f7;
-  --retro-grid: rgba(123, 73, 211, 0.14);
-  --bg-a: #f3edff;
-  --bg-b: #fff4fa;
-  --card: var(--retro-paper);
-  --card-soft: #fff7ed;
-  --ink: var(--retro-ink);
-  --muted: #60577d;
-  --line: #e5d8f0;
-  --line-strong: #c8b8e8;
-  --accent: var(--retro-pink);
-  --accent-2: var(--retro-teal);
-  --accent-3: var(--retro-deep);
-  --accent-soft: #f5edff;
-  --success: #13866f;
-  --danger: #e83572;
-  --warning: #9a6b1e;
-  --warning-soft: #fff5db;
-  --shadow: 0 18px 0 -12px rgba(32, 20, 87, 0.18), 0 24px 58px -34px rgba(32, 20, 87, 0.55);
-  --shadow-card: 0 16px 32px -24px rgba(32, 20, 87, 0.55);
-  --shadow-soft: 0 16px 32px -24px rgba(32, 20, 87, 0.45);
-  --radius-xl: 24px;
-  --radius-lg: 20px;
-  --radius-md: 15px;
-  --font-body: 'Nunito Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-display: 'Barlow Condensed', 'Nunito Sans', system-ui, sans-serif;
-  --font-script: 'Pacifico', cursive;
-}
-
 html {
   background: #f4efff;
 }
@@ -3740,19 +3739,19 @@ body::after {
    ============================================================ */
 
 .admin-page {
-  --mock-cream: #fffdf5;
+  --mock-cream: var(--color-cream);
   --mock-cream-2: #fff9ed;
   --mock-lilac: #dcd2fb;
-  --mock-lilac-2: #f5efff;
-  --mock-pink: #f0338f;
-  --mock-pink-2: #ff7b75;
-  --mock-teal: #00aebf;
-  --mock-deep: #171052;
-  --mock-purple: #3a2184;
+  --mock-lilac-2: var(--accent-soft);
+  --mock-pink: var(--color-pink);
+  --mock-pink-2: var(--color-coral);
+  --mock-teal: var(--color-teal);
+  --mock-deep: var(--color-ink);
+  --mock-purple: var(--color-deep);
   --mock-line: rgba(23, 16, 82, 0.28);
   --mock-soft-line: rgba(23, 16, 82, 0.13);
-  --mock-shadow: 0 8px 0 rgba(23, 16, 82, 0.13), 0 28px 52px -34px rgba(23, 16, 82, 0.62);
-  --mock-card-shadow: 0 6px 0 rgba(23, 16, 82, 0.11), 0 24px 48px -36px rgba(23, 16, 82, 0.62);
+  --mock-shadow: var(--shadow);
+  --mock-card-shadow: var(--shadow-card);
   min-height: 100vh;
   padding: 14px;
   background:
@@ -6284,7 +6283,7 @@ body.catalog-page {
 }
 
 .reference-upload label {
-  color: var(--purple);
+  color: var(--color-purple);
   font-weight: 900;
   font-size: 0.86rem;
 }
@@ -6433,7 +6432,7 @@ body.catalog-page {
 .chat-bubble.user {
   justify-self: end;
   color: #fff;
-  background: linear-gradient(135deg, var(--purple), #4b2c86);
+  background: linear-gradient(135deg, var(--color-purple), #4b2c86);
   border-bottom-right-radius: 8px;
 }
 
@@ -6450,7 +6449,7 @@ body.catalog-page {
 }
 
 .chat-bubble.assistant small {
-  color: var(--pink);
+  color: var(--color-pink);
 }
 
 .custom-chat-form {
@@ -6804,7 +6803,7 @@ body.catalog-page {
 }
 
 .reference-upload-title {
-  color: var(--purple);
+  color: var(--color-purple);
   font-weight: 950;
   font-size: 0.86rem;
 }
