@@ -47,8 +47,10 @@ function renderCategories() {
       ? state.products.length
       : state.products.filter(product => product.category === category).length;
 
+    const categoryArg = escapeHtml(JSON.stringify(category));
+
     return `
-      <button class="category-filter ${state.category === category ? 'active' : ''}" type="button" onclick="setCategory('${escapeHtml(category)}')">
+      <button class="category-filter ${state.category === category ? 'active' : ''}" type="button" onclick="setCategory(${categoryArg})">
         <span>${escapeHtml(category)}</span>
         <small>${count}</small>
       </button>
@@ -173,10 +175,52 @@ function renderCart() {
   }).join('');
 }
 
-function setCategory(category) {
+function getCategoryFromPath() {
+  const parts = window.location.pathname.split('/').filter(Boolean);
+  if (parts[0] !== 'categoria' || !parts[1]) return null;
+  const categorySlug = parts[1];
+  return getCategories(state.products).find(category => slugify(category) === categorySlug) || null;
+}
+
+function syncCatalogSeo() {
+  if (!window.CatalogSEO) return;
+
+  if (state.category && state.category !== 'Todo') {
+    window.CatalogSEO.applyCategory(state.category);
+    return;
+  }
+
+  window.CatalogSEO.applyCatalog();
+}
+
+function updateCategoryUrl(category, replace) {
+  if (!window.history || typeof window.history.pushState !== 'function') return;
+
+  const nextPath = category && category !== 'Todo'
+    ? `/categoria/${slugify(category)}`
+    : '/catalogo';
+
+  if (window.location.pathname === nextPath) return;
+
+  const method = replace ? 'replaceState' : 'pushState';
+  window.history[method]({ category }, '', nextPath);
+}
+
+function applyCategoryFromPath() {
+  const categoryFromPath = getCategoryFromPath();
+  state.category = categoryFromPath || 'Todo';
+  updateCategoryUrl(state.category, true);
+}
+
+function setCategory(category, options = {}) {
   state.category = category;
   renderCategories();
   renderCatalog();
+  syncCatalogSeo();
+
+  if (!options.skipUrl) {
+    updateCategoryUrl(category, false);
+  }
 }
 
 function changeQty(id, delta) {
@@ -252,9 +296,11 @@ async function initCatalog() {
   }
 
   state.products = await loadProducts({ includeHidden: false });
+  applyCategoryFromPath();
   renderCategories();
   renderCatalog();
   renderCart();
+  syncCatalogSeo();
 }
 
 const searchInput = document.getElementById('searchInput');
@@ -307,6 +353,12 @@ function requestMobileCatalogChromeSync() {
 
 window.addEventListener('scroll', requestMobileCatalogChromeSync, { passive: true });
 window.addEventListener('resize', requestMobileCatalogChromeSync);
+window.addEventListener('popstate', () => {
+  applyCategoryFromPath();
+  renderCategories();
+  renderCatalog();
+  syncCatalogSeo();
+});
 
 const quoteBtn = document.getElementById('quoteBtn');
 if (quoteBtn) quoteBtn.addEventListener('click', goToPedido);

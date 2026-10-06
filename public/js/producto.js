@@ -83,6 +83,9 @@ async function initProductDetail() {
   }
 
   product = await loadProductBySlug(slug);
+  if (product && window.CatalogSEO) {
+    window.CatalogSEO.applyProduct(product);
+  }
   renderProductDetail();
 }
 
